@@ -1,3 +1,5 @@
+import 'package:exam/News_page.dart';
+import 'package:exam/Workout_page.dart';
 import 'package:flutter/material.dart';
 
 import 'Home_Screen.dart';
@@ -16,6 +18,8 @@ class MyApp extends StatelessWidget {
       initialRoute: HomeScreen.routename,
       routes: {
         HomeScreen.routename: (context) => HomeScreen(),
+        Workoutpage.routename:(context) => Workoutpage(),
+        Newspage.routename:(context) => Newspage(),
       },
     );
   }

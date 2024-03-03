@@ -1,9 +1,11 @@
 import 'package:exam/Circle_avtor.dart';
+import 'package:exam/Workout_page.dart';
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 
 import 'Bottom_Navigator_Bar.dart';
 import 'Gide_view_widget.dart';
+import 'News_page.dart';
 
 class HomeScreen extends StatelessWidget {
   static const routename = "homescreen";
@@ -21,96 +23,105 @@ class HomeScreen extends StatelessWidget {
           style: TextStyle(fontWeight: FontWeight.w400, fontSize: 24),
         ),
         actions: [
-          Badge(
-              child: Icon(
-                Icons.notifications,
-                size: 24,
-              ))
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Badge(smallSize: 8,
+                child: Icon(
+                  Icons.notifications,
+                  size: 24,
+                )),
+          )
         ],
       ),
-      body: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Padding(
-              padding: const EdgeInsets.all(12.0),
-              child: Text(
-                "Hello, Sara Rose",
-                style: TextStyle(fontWeight: FontWeight.w600, fontSize: 20),
+      body:
+      Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Padding(
+                padding: const EdgeInsets.all(12.0),
+                child: Text(
+                  "Hello, Sara Rose",
+                  style: TextStyle(fontWeight: FontWeight.w600, fontSize: 20),
+                ),
               ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(12.0),
-              child: Text("How are you feeling today ?",
-                  style: TextStyle(fontWeight: FontWeight.w400, fontSize: 16)),
-            ),
-            SizedBox(
-              height: 15,
-            ),
+              Padding(
+                padding: const EdgeInsets.all(12.0),
+                child: Text("How are you feeling today ?",
+                    style: TextStyle(fontWeight: FontWeight.w400, fontSize: 16)),
+              ),
+              SizedBox(
+                height: 15,
+              ),
 
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                Circleavtorwidget(imgpath:"assets/images/Group.png" , text: "Love"),
-                Circleavtorwidget(imgpath: "assets/images/Frame.png",text: "Cool"),
-                Circleavtorwidget(imgpath: "assets/images/Frame (3).png", text: "Happy"),
-                Circleavtorwidget(imgpath: "assets/images/Frame (6).png", text: "Sad")
-              ],
-            ),
-            SizedBox(
-              height: 40,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Text(
-                    "Feature",
-                    style: TextStyle(fontWeight: FontWeight.w600),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  Circleavtorwidget(imgpath:"assets/images/Group.png" , text: "Love"),
+                  Circleavtorwidget(imgpath: "assets/images/Frame.png",text: "Cool"),
+                  Circleavtorwidget(imgpath: "assets/images/Frame (3).png", text: "Happy"),
+                  Circleavtorwidget(imgpath: "assets/images/Frame (6).png", text: "Sad")
+                ],
+              ),
+              SizedBox(
+                height: 40,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text(
+                      "Feature",
+                      style: TextStyle(fontWeight: FontWeight.w600),
+                    ),
                   ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(10.0),
-                  child: Text("See more>", style: TextStyle(color: Colors.green)),
-                )
-              ],
-            ),
-            CarouselSlider(items: [
-              Image.asset("assets/images/image slide.png"),
-              Image.asset("assets/images/image slide.png"),
-              Image.asset("assets/images/image slide.png"),
-            ], options: CarouselOptions(height: 200)),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Text(
-                    "Exercise",
-                    style: TextStyle(fontWeight: FontWeight.w600),
+                  Padding(
+                    padding: const EdgeInsets.all(10.0),
+                    child: InkWell(onTap: (){
+                      Navigator.pushNamed(context,Newspage.routename);
+                    },child: Text("See more>", style: TextStyle(color: Colors.green))),
+                  )
+                ],
+              ),
+              CarouselSlider(items: [
+                Image.asset("assets/images/image slide.png"),
+                Image.asset("assets/images/image slide.png"),
+                Image.asset("assets/images/image slide.png"),
+              ], options: CarouselOptions(height: 200)),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text(
+                      "Exercise",
+                      style: TextStyle(fontWeight: FontWeight.w600),
+                    ),
                   ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(10.0),
-                  child: Text("See more>", style: TextStyle(color: Colors.green)),
-                )
-              ],
-            ),
-            Expanded(
-              child: GridView.count(primary: false,
-                padding: const EdgeInsets.all(20),
-                crossAxisSpacing: 10,
-                mainAxisSpacing: 10,
-                crossAxisCount: 2,children: [
-                  gridviewwidget(text: "Relaxation",imgpath: "assets/images/image grid.png",),
-                  gridviewwidget(text: 'Meditation', imgpath: "assets/images/medatation.png"),
-                  gridviewwidget(text: 'Beathing', imgpath: "assets/images/Beathing.png"),
-                  gridviewwidget(text: 'Yoga', imgpath: "assets/images/Yoga.png"),
-                ],),
-            )
-          ],
-        ),
-      bottomNavigationBar:BottomNavigatorBar(),
+                  Padding(
+                    padding: const EdgeInsets.all(10.0),
+                    child: InkWell( onTap: (){
+                      Navigator.pushNamed(context, Workoutpage.routename);
+                    },child: Text("See more>", style: TextStyle(color: Colors.green))),
+                  )
+                ],
+              ),
+              Expanded(
+                child: GridView.count(primary: false,shrinkWrap: false,
+                  padding: const EdgeInsets.all(20),
+                  crossAxisSpacing: 10,
+                  mainAxisSpacing: 10,
+                  crossAxisCount: 2,children: [
+                    gridviewwidget(text: "Relaxation",imgpath: "assets/images/image grid.png",),
+                    gridviewwidget(text: 'Meditation', imgpath: "assets/images/medatation.png"),
+                    gridviewwidget(text: 'Beathing', imgpath: "assets/images/Beathing.png"),
+                    gridviewwidget(text: 'Yoga', imgpath: "assets/images/Yoga.png"),
+                  ],),
+              )
+            ],
+          ),
+
+      bottomNavigationBar:BottomNavigatorBar(icon: Icon(Icons.grid_view),icondata: Icon(Icons.calendar_today_outlined),),
     );
   }
 }
