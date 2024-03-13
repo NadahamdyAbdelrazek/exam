@@ -2,6 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
+import 'News_page.dart';
+
 class BottomNavigatorBar extends StatefulWidget {
 
   Widget icon;
@@ -31,7 +33,10 @@ class _BottomNavigatorBarState extends State<BottomNavigatorBar> {
       showUnselectedLabels: false,
       showSelectedLabels: false,
       items: [BottomNavigationBarItem(label: "", icon: Icon(Icons.home)),
-        BottomNavigationBarItem(label: "", icon: widget.icon),
+        BottomNavigationBarItem(label: "", icon: InkWell(onTap: (){
+          Navigator.pushNamed(context, Newspage.routename);
+        },
+            child: widget.icon)),
         BottomNavigationBarItem(icon: widget.icondata, label: "" ),
         BottomNavigationBarItem(label: "", icon: Icon(Icons.person)),
 

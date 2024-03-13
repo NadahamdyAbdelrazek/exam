@@ -42,7 +42,7 @@ class _NewspageState extends State<Newspage> {
           ),
         ),
         body: SingleChildScrollView( 
-          child: Column(crossAxisAlignment: CrossAxisAlignment.start,
+          child: Column(crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Padding(
                 padding: const EdgeInsets.all(20.0),
@@ -92,22 +92,25 @@ class _NewspageState extends State<Newspage> {
                   style: TextStyle(fontSize: 18,fontWeight: FontWeight.w600),
                 ),
               ),
-              Container(padding: EdgeInsets.all(12),child: Row(
-                children: [
-                  Image.asset("assets/images/Doctor-PNG-Images 1.png"),
-                  Column(children: [Text("Connect with doctors & get suggestions"),
-                    Text("Connect now and get expert insights "),
-                    ElevatedButton(onPressed: (){}, child: Text("View detail"))
-                  ],)
-                ],
+               Container(padding: EdgeInsets.all(12),child: Row(
+                  children: [
+                    Image.asset("assets/images/Doctor-PNG-Images 1.png"),
+                    SizedBox(width: 200,
+                      child: Column(children: [Text("Connect with doctors & get suggestions"),
+                        Text("Connect now and get expert insights ",),
+                        ElevatedButton(onPressed: (){}, child: Text("View detail"))
+                      ],),
+                    )
+                  ],
+                )
+                  ,),
+    ]
               )
-                ,)
 
-              ]
 
 
               ),
-        ),
+
 
         bottomNavigationBar: BottomNavigationBar(
           currentIndex: index,
